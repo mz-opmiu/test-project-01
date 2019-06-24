@@ -1,7 +1,7 @@
 import Vue from 'vue';
 import Router from 'vue-router';
 
-import Launching from './arteon/Index.vue';
+import wishEvent from './fok2019wish/components/Index.vue';
 
 Vue.use(Router);
 
@@ -9,9 +9,9 @@ export default new Router({
   mode: 'history',
   routes: [
     {
-      path: '/',
+      path: '/2019wish',
       name: 'home',
-      component: Launching
+      component: wishEvent
     }
     // {
     //   path: '/about',

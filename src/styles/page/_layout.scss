@@ -1,0 +1,12 @@
+.wrap {
+  position: relative;
+  min-width: $min-width;
+  max-width: $max-width;
+  margin: 0 auto;
+  padding-top: 71px;
+}
+
+.inner-con {
+  width: $min-width;
+  margin: 0 auto;
+}

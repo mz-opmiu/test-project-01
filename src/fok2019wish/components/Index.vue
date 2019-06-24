@@ -4,7 +4,13 @@
   </section>
 </template>
 <script>
-export default {}
+export default {
+  name: 'launching',
+  data() {
+    return {}
+  },
+  components: {}
+}
 </script>
 
 <style lang="scss" scoped>
