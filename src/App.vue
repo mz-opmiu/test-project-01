@@ -18,7 +18,3 @@ export default {
   }
 }
 </script>
-
-<style lang="scss" >
-@import '@/styles/base/_reset-eric.scss';
-</style>

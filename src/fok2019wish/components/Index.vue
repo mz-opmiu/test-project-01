@@ -247,25 +247,46 @@
     <!-- Popups -->
     <PopParticipate
       :currentPop="currentPop"
-      @close="closePop()"
+      :userModel="userModel.event1"
+      @saveUserModel="submit"
+      @close="closePop"
     ></PopParticipate>
+
+    <PopPersonal
+      :currentPop="currentPop"
+      :userModel="userModel.event1"
+      @saveUserModel="submit"
+      @close="closePop"
+    ></PopPersonal>
+
+    <PopComplete :currentPop="currentPop" @close="closePop"></PopComplete>
   </div>
 </template>
 
 <script>
 import PopParticipate from '../components/PopParticipate'
-import { setTimeout } from 'timers'
-import { nextTick } from 'q'
+import PopPersonal from '../components/PopPersonal'
+import PopComplete from '../components/PopComplete'
 
 export default {
-  name: 'launching',
+  name: 'event',
   data() {
     return {
+      userModel: {
+        event1: {
+          wishOption: '',
+          age: '',
+          wishText: ''
+        },
+        event2: {}
+      },
       currentPop: ''
     }
   },
   components: {
-    PopParticipate
+    PopParticipate,
+    PopPersonal,
+    PopComplete
   },
   methods: {
     openPop(popName) {
@@ -275,8 +296,21 @@ export default {
         $('.popup.is-show .popup__cover').css('top', scrollTop)
       })
     },
-    closePop() {
+    closePop(nextPopName) {
       this.currentPop = ''
+
+      console.log(nextPopName)
+      if (nextPopName) this.openPop(nextPopName)
+    },
+    submit(eventType, value) {
+      let userModel = this.userModel[eventType]
+      this.userModel[eventType] = {
+        ...userModel,
+        ...value
+      }
+
+      console.log(eventType)
+      console.log(value)
     }
   }
 }
@@ -357,3 +391,4 @@ $image-url: '../images/pc';
   }
 }
 </style>
+

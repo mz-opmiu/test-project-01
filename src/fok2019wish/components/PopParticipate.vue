@@ -15,16 +15,19 @@
             alt="우리 아이의 소원을 적어주세요"
           />
         </p>
-        <form @submit.prevent="checkUserWish">
+        <!-- <form @submit.prevent="checkUserWish"> -->
+        <form @submit.prevent="goNextStep">
           <dl>
-            <dt><label for="wish-list">아이의 소원</label></dt>
+            <dt>
+              <label for="wish-list">아이의 소원</label>
+            </dt>
             <dd>
-              <select name="" id="wish-list">
+              <select name="" id="wish-list" v-model="userModel.wishOption">
                 <option
                   v-for="(wishOpt, index) in wishOptionList"
                   :value="wishOpt.value"
                   :key="index"
-                  >{{ wishOpt }}</option
+                  >{{ wishOpt.text }}</option
                 >
               </select>
             </dd>
@@ -46,6 +49,7 @@
                 maxlength="2"
                 id="child-age"
                 placeholder="만 나이로 숫자만 적어주세요."
+                v-model="userModel.age"
               />
             </dd>
             <dt class="a11y-hidden">
@@ -59,10 +63,13 @@
                 rows="10"
                 maxlength="100"
                 placeholder="내 아이가 어린이 날에 가장 이루고 싶어하는 소중한 소원을 자세하게 작성해주세요! (100자 제한)"
+                v-model="userModel.wishText"
               ></textarea>
             </dd>
           </dl>
-          <button type="submit" class="btn__pop btn__next">다음으로</button>
+          <button type="submit" class="btn__pop btn__next">
+            다음으로
+          </button>
         </form>
       </div>
       <button type="button" class="btn__close" @click.self="$emit('close')">
@@ -79,12 +86,23 @@ export default {
   data() {
     return {
       wishOptionList: [
-        '하고 싶어요',
-        '되고 싶어요',
-        '가고 싶어요',
-        '만나고 싶어요',
-        '갖고 싶어요'
-      ]
+        { text: '하고 싶어요', value: 'do' },
+        { text: '되고 싶어요', value: 'be' },
+        { text: '가고 싶어요', value: 'go' },
+        { text: '만나고 싶어요', value: 'meet' },
+        { text: '갖고 싶어요', value: 'get' }
+      ],
+      userModel: {
+        wishOption: 'do',
+        age: '',
+        wishText: ''
+      }
+    }
+  },
+  methods: {
+    goNextStep() {
+      this.$emit('saveUserModel', `event1`, this.userModel)
+      this.$emit('close', 'personal')
     }
   }
 }
