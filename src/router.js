@@ -1,7 +1,9 @@
 import Vue from 'vue';
 import Router from 'vue-router';
 
-import wishEvent from './fok2019wish/components/Index.vue';
+import Event from './fok2019wish/components/Index.vue';
+import Store from './fok2019wish/components/Store.vue';
+import Gallery from './fok2019wish/components/Gallery.vue';
 
 Vue.use(Router);
 
@@ -11,7 +13,21 @@ export default new Router({
     {
       path: '/2019wish',
       name: 'home',
-      component: wishEvent
+      component: Event
+    },
+    {
+      path: '/2019wish/storelist',
+      name: 'store',
+      component: Store
+    },
+    {
+      path: '/2019wish/gallery',
+      name: 'gallery',
+      component: Gallery
+    },
+    {
+      path: '*',
+      redirect: '/2019wish'
     }
     // {
     //   path: '/about',

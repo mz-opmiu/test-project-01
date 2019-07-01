@@ -1,0 +1,171 @@
+//------------------
+// variable
+//------------------
+$popWidth: 640px;
+$popInnerWidth: 560px;
+$image-url: '../images/pop';
+
+%inputText {
+  height: 60px;
+  padding: 0 20px;
+  background-color: #fff;
+  color: #757575;
+  border: 1px solid #c2c2c2;
+  font-size: 22px;
+  line-height: 60px;
+}
+
+.popup {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  z-index: 95;
+
+  &.is-show {
+    display: block;
+  }
+
+  &__cover {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: $popWidth;
+    margin-top: 100px;
+    text-align: left;
+    background: #caebfa;
+    transform: translateX(-50%);
+  }
+
+  &__inner-con {
+    width: $popInnerWidth;
+    margin: 0 auto;
+  }
+
+  &__header {
+    width: 100%;
+    font-size: 0;
+  }
+
+  &__content {
+    font-size: 0;
+    text-align: center;
+    padding-bottom: 36px;
+  }
+
+  input[type='text'],
+  input[type='tel'],
+  textarea,
+  select {
+    @extend %inputText;
+    width: 100%;
+    max-width: 574px;
+  }
+
+  textarea {
+    height: 100px;
+    resize: none;
+    line-height: 45px;
+  }
+
+  dl {
+    display: inline-block;
+    width: 100%;
+    margin-top: 10px;
+
+    &:first-child {
+      margin: 0;
+    }
+
+    font-size: 0;
+  }
+
+  dt {
+    display: inline-block;
+    width: 136px;
+    height: 45px;
+    margin-top: 15px;
+    @include background('/ir-personal.png');
+
+    label {
+      display: block;
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  dd {
+    position: relative;
+    display: inline-block;
+    margin: 0;
+    vertical-align: top;
+  }
+
+  .btn__close {
+    position: absolute;
+    top: -80px;
+    left: 50%;
+    width: 71px;
+    height: 71px;
+    font-size: 0;
+    @include background('/btn-close.png');
+    transform: translateX(-50%);
+  }
+}
+
+//------------------
+// button
+//------------------
+.btn {
+  &__pop {
+    display: block;
+    @include background('/btns.png');
+    font-size: 0;
+  }
+
+  &__register {
+    width: 411px;
+    height: 96px;
+    margin: 0 auto;
+    background-position: -426px -69px;
+  }
+
+  &__next {
+    width: 411px;
+    height: 96px;
+    margin: 34px auto 0;
+    background-position-y: -175px;
+  }
+
+  &__complete {
+    width: 411px;
+    height: 96px;
+    margin: 0 auto;
+    background-position: 0 -280px;
+  }
+
+  &__entry {
+    display: block;
+    width: 411px;
+    height: 96px;
+    margin: 34px auto 0;
+    background-position: 0 -70px;
+  }
+
+  &__complete {
+    width: 411px;
+    height: 96px;
+    margin: 0 auto;
+    background-position: 0 -280px;
+  }
+
+  &__post {
+    float: right;
+    width: 161px;
+    height: 60px;
+    background-position: 0 0;
+  }
+}

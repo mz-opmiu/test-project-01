@@ -23,17 +23,10 @@ export default {
 
 <style lang="scss" scoped>
 header {
-  position: absolute;
-  left: 50%;
-  top: 0;
   width: 100%;
-  min-width: $min-width;
-  max-width: $max-width;
   height: 73px;
   margin: auto;
   background: url('../images/bg-header.jpg') repeat-x left bottom;
-  z-index: 10;
-  transform: translateX(-50%);
 
   h1 {
     float: left;
