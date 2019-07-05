@@ -288,6 +288,26 @@ export default {
     PopPersonal,
     PopComplete
   },
+  created() {
+    const testArr = [1, 2, 3, 4, 5]
+
+    console.log(['testarr', ...testArr])
+    const promise1 = new Promise(resolve => {
+      setTimeout(() => {
+        resolve('sojung test ing!!!!!')
+      }, 300)
+    })
+
+    promise1.then(value => {
+      console.log(value)
+      // expected output: "foo"
+    })
+
+    console.log(promise1)
+
+    let sf = Symbol.for('test')
+    console.log(sf === Symbol.for('test')) // true
+  },
   methods: {
     openPop(popName) {
       this.currentPop = popName
@@ -309,8 +329,8 @@ export default {
         ...value
       }
 
-      console.log(eventType)
-      console.log(value)
+      // console.log(eventType)
+      // console.log(value)
     }
   }
 }
