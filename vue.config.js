@@ -1,14 +1,11 @@
-const path = require('path');
 const webpack = require('webpack');
-// const ansiRegex = require('ansi-regex');
 
 module.exports = {
   css: {
     loaderOptions: {
       sass: {
         data: `
-                @import "@/styles/vars/_variables.scss";
-                @import "@/styles/mixin/_background.scss";
+                @import "@/styles/_global.scss";
               `
       }
     }
@@ -28,22 +25,11 @@ module.exports = {
       })
       // new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/),
     ]
+  },
+  chainWebpack: config => {
+    config.plugin('html').tap(args => {
+      args[0].template = 'public/index-m.html';
+      return args;
+    });
   }
-  // chainWebpack: config => {
-  //   const oneOfsMap = config.module.rule('scss').oneOfs.store;
-  //   oneOfsMap.forEach(item => {
-  //     item
-  //       .use('sass-resources-loader')
-  //       .loader('sass-resources-loader')
-  //       .options({
-  //         // Provide path to the file with resources
-  //         resources: '@/styles/_global.scss'
-
-  //         // Or array of paths
-  //         // resources: ['./path/to/vars.scss', './path/to/mixins.scss']
-  //       })
-  //       .end();
-  //   });
-  // }
-  // transpileDependencies: [ansiRegex]
 };
