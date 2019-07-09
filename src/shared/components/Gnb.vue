@@ -7,9 +7,9 @@
         /></a>
       </h1>
       <nav>
-        <router-link to="/2019wish">Main</router-link>
-        <router-link to="/2019wish/gallery">Wish Ranking</router-link>
-        <router-link to="/2019wish/storelist">Store List</router-link>
+        <router-link to="/fok2019wish">Main</router-link>
+        <router-link to="/fok2019wish/gallery">Wish Ranking</router-link>
+        <router-link to="/fok2019wish/storelist">Store List</router-link>
       </nav>
     </div>
   </header>

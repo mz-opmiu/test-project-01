@@ -1,12 +1,12 @@
 <template>
   <div id="app" class="wrap">
-    <gnb></gnb>
+    <Gnb></Gnb>
     <router-view />
   </div>
 </template>
 
 <script>
-import gnb from '@/shared/components/Gnb'
+import Gnb from '@/shared/components/Gnb'
 
 export default {
   name: 'app',
@@ -14,7 +14,7 @@ export default {
     return {}
   },
   components: {
-    gnb
+    Gnb
   }
 }
 </script>
